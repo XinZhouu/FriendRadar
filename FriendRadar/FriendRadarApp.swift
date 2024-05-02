@@ -16,6 +16,7 @@ struct FriendRadarApp: App {
         WindowGroup {
             ContentView()
                 .environment(MapManager())
+                .environment(UserManager())
         }
         .modelContainer(for: [User.self, Location.self])
     }

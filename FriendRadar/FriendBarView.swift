@@ -10,7 +10,8 @@ import SwiftData
 
 struct FriendBarView: View {
     @Environment(MapManager.self) private var mapManager
-    @Query private var locInfo: [Location]
+    @Environment(UserManager.self) private var userManager
+    @Query var userInfo: [User]
     
     let friends: [Friend]
     var showContent: Bool
@@ -38,8 +39,22 @@ struct FriendBarView: View {
                     
                     Button(action: {
                         showAlert.toggle()
-                        locInfo.first(where: { $0.name == mapManager.selectedLocation?.name })?.
-                        
+                        if let loggedInUserName = userManager.loggedInUser?.name {
+                            if let user = userInfo.first(where: { $0.name == loggedInUserName }),
+                               let locationName = mapManager.selectedLocation?.name {
+                                user.favProperties.insert(locationName, at: 0)
+                            } else {
+                                // This else block will execute if user is not found or location name is nil
+                                // Assuming we need to handle it somehow, for example, appending a default name
+                                if let user = userInfo.first(where: { $0.name == loggedInUserName }) {
+                                    user.favProperties.append("No Name")
+                                }
+                            }
+                        } else {
+                            // Handle the case where loggedInUser or its name is nil
+                            // Decide what should happen in this case, maybe log an error or use a default user
+                        }
+
                     }) {
                         HStack {
                             Image(systemName: "plus.app")
@@ -87,6 +102,17 @@ struct FriendBarView: View {
                 .padding()
             }
             .background(Color.clear)
+            
+            HStack {
+                Spacer()
+                Button(action: {
+                    
+                }) {
+                    Image(systemName: "chevron.up")
+                }
+                Spacer()
+            }
+            .foregroundColor(.white)
         }
     }
 }
@@ -111,4 +137,5 @@ let friends = [
 #Preview {
     FriendBarView(friends: friends, showContent: true)
         .environment(MapManager())
+        .environment(UserManager())
 }
