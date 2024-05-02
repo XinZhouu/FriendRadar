@@ -14,7 +14,7 @@ struct FriendBarView: View {
     @Query var userInfo: [User]
     
     let friends: [Friend]
-    var showContent: Bool
+    @Binding var showContent: Bool
     @State private var showAlert = false
     
     var body: some View {
@@ -106,7 +106,7 @@ struct FriendBarView: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    
+                    showContent.toggle()
                 }) {
                     Image(systemName: "chevron.up")
                 }
@@ -135,7 +135,7 @@ let friends = [
 ]
 
 #Preview {
-    FriendBarView(friends: friends, showContent: true)
+    FriendBarView(friends: friends, showContent: .constant(true))
         .environment(MapManager())
         .environment(UserManager())
 }

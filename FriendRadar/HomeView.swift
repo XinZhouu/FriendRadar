@@ -30,7 +30,7 @@ struct HomeView: View {
     var body: some View {
         VStack {
             // Top Bar
-            HomeTopBarView(isSearchBarVisible: $isSearchBarVisible, showDropdown: $showDropdown, showFriendContent: showFriendContent)
+            HomeTopBarView(isSearchBarVisible: $isSearchBarVisible, showDropdown: $showDropdown, showFriendContent: $showFriendContent)
             
             // Map
             MapView(showFriendContent: $showFriendContent)

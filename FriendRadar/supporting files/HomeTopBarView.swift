@@ -14,7 +14,7 @@ struct HomeTopBarView: View {
     @Binding var isSearchBarVisible: Bool
     @Binding var showDropdown: Bool
     
-    var showFriendContent: Bool
+    @Binding var showFriendContent: Bool
     
     @State private var selectedOption: String?
     
@@ -95,7 +95,7 @@ struct HomeTopBarView: View {
             
             // Friend view
             if (showFriendContent) {
-                FriendBarView(friends: friends, showContent: showFriendContent)
+                FriendBarView(friends: friends, showContent: $showFriendContent)
                     .transition(.move(edge: .trailing))
                     .animation(.easeIn(duration: 10), value: showFriendContent)
             }
@@ -107,7 +107,7 @@ struct HomeTopBarView: View {
 }
 
 #Preview {
-    HomeTopBarView(isSearchBarVisible: .constant(true), showDropdown: .constant(false), showFriendContent: true)
+    HomeTopBarView(isSearchBarVisible: .constant(true), showDropdown: .constant(false), showFriendContent: .constant(false))
         .environment(MapManager())
         .environment(UserManager())
 }
