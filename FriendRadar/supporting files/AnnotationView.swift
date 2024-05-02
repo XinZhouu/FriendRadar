@@ -15,7 +15,9 @@ struct AnnotationView: View {
     
     var body: some View {
         Button(action: {
-            showFriendContent = true
+            withAnimation(.easeInOut(duration: 0.5)){
+                showFriendContent = true
+            }
             mapManager.selectedLocation = targetLoc
         }) {
             Text("\(targetLoc.likes.count)")

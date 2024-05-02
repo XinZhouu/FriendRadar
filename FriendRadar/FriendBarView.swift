@@ -106,7 +106,9 @@ struct FriendBarView: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    showContent.toggle()
+                    withAnimation(.easeInOut(duration: 0.5)) {
+                        showContent.toggle()
+                    }
                 }) {
                     Image(systemName: "chevron.up")
                 }

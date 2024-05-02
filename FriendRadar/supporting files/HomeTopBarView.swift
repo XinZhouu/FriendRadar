@@ -96,8 +96,6 @@ struct HomeTopBarView: View {
             // Friend view
             if (showFriendContent) {
                 FriendBarView(friends: friends, showContent: $showFriendContent)
-                    .transition(.move(edge: .trailing))
-                    .animation(.easeIn(duration: 10), value: showFriendContent)
             }
         }
         .padding()
