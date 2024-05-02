@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C77231992BE4541400680F29 /* PinWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77231982BE4541400680F29 /* PinWindow.swift */; };
 		C7834F072BD15F1300289DAF /* FriendRadarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7834F062BD15F1300289DAF /* FriendRadarApp.swift */; };
 		C7834F092BD15F1300289DAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7834F082BD15F1300289DAF /* ContentView.swift */; };
 		C7834F0B2BD15F1500289DAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7834F0A2BD15F1500289DAF /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C77231982BE4541400680F29 /* PinWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinWindow.swift; sourceTree = "<group>"; };
 		C7834F032BD15F1300289DAF /* FriendRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7834F062BD15F1300289DAF /* FriendRadarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRadarApp.swift; sourceTree = "<group>"; };
 		C7834F082BD15F1300289DAF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				C7E0DFD22BE1EACA0019DE2F /* AnnotationView.swift */,
 				C7E0DFD42BE1F20F0019DE2F /* HomeTopBarView.swift */,
 				C7E2C4D22BE3388B00EF1AC5 /* UserManager.swift */,
+				C77231982BE4541400680F29 /* PinWindow.swift */,
 			);
 			path = "supporting files";
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				C7834F442BD2204C00289DAF /* ProfileView.swift in Sources */,
 				C7834F322BD15F5A00289DAF /* User.swift in Sources */,
 				C7834F072BD15F1300289DAF /* FriendRadarApp.swift in Sources */,
+				C77231992BE4541400680F29 /* PinWindow.swift in Sources */,
 				C7834F402BD1BE2A00289DAF /* SignUpView.swift in Sources */,
 				C7834F3A2BD1781500289DAF /* FriendBarView.swift in Sources */,
 				C7834F3C2BD1831200289DAF /* TopBarView.swift in Sources */,
