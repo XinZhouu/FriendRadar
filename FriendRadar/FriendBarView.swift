@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct FriendBarView: View {
     @Environment(MapManager.self) private var mapManager
+    @Query private var locInfo: [Location]
+    
     let friends: [Friend]
     var showContent: Bool
     @State private var showAlert = false
@@ -33,13 +36,24 @@ struct FriendBarView: View {
                     Text(mapManager.selectedLocation?.name ?? "No Name").bold()
                     Spacer()
                     
-                    Button(action: {}) {
+                    Button(action: {
+                        showAlert.toggle()
+                        locInfo.first(where: { $0.name == mapManager.selectedLocation?.name })?.
+                        
+                    }) {
                         HStack {
                             Image(systemName: "plus.app")
                             Text("Add Locations")
                         }
                         .padding()
                         .foregroundColor(.white)
+                    }
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text("message").font(.caption),
+                            message: Text("You've successfully added \(mapManager.selectedLocation?.name ?? "this location") to your favorites!"),
+                            dismissButton: .default(Text("Got it!"))
+                        )
                     }
                 }
                 .padding(.leading)
@@ -53,7 +67,6 @@ struct FriendBarView: View {
                 }
                 .foregroundColor(.white)
             }
-            
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .center, spacing: 10) {
@@ -97,4 +110,5 @@ let friends = [
 
 #Preview {
     FriendBarView(friends: friends, showContent: true)
+        .environment(MapManager())
 }
