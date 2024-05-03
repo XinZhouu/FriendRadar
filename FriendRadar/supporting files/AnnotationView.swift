@@ -16,7 +16,7 @@ struct AnnotationView: View {
     var body: some View {
         Button(action: {
             withAnimation(.easeInOut(duration: 0.5)){
-                showFriendContent = true
+                showFriendContent.toggle()
             }
             mapManager.selectedLocation = targetLoc
         }) {

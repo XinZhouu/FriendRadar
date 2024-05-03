@@ -20,7 +20,7 @@ struct MapView: View {
     
     // handle pin features
     @State private var tappedCoordinate: CLLocationCoordinate2D?
-    @State private var pinWindowShowUp = false
+    @Binding var pinWindowShowUp: Bool
     
     var body: some View {
         //The initial postion must be passed
@@ -75,12 +75,12 @@ struct MapView: View {
                      }
                      .onTapGesture { position in
                          if let coordinate = proxy.convert(position, from: .local) {
-                             tappedCoordinate = coordinate
-                             withAnimation {
-                                 pinWindowShowUp.toggle()
+                                 tappedCoordinate = coordinate
+                                 withAnimation {
+                                     pinWindowShowUp.toggle()
+                                 }
                              }
                          }
-                     }
             }
             
             if (pinWindowShowUp) {
@@ -92,6 +92,9 @@ struct MapView: View {
 }
 
 
+
+
+
 #Preview {
-    MapView(showFriendContent: .constant(true))        .environment(MapManager())
+    MapView(showFriendContent: .constant(true), pinWindowShowUp: .constant(false))        .environment(MapManager())
 }

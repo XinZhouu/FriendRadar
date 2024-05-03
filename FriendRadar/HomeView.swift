@@ -26,6 +26,7 @@ struct HomeView: View {
     
     @State private var showDropdown = false
     @State private var selectedOption: String?
+    @State private var pinWindowShowUp = false
 
     var body: some View {
         VStack {
@@ -33,7 +34,7 @@ struct HomeView: View {
             HomeTopBarView(isSearchBarVisible: $isSearchBarVisible, showDropdown: $showDropdown, showFriendContent: $showFriendContent)
             
             // Map
-            MapView(showFriendContent: $showFriendContent)
+            MapView(showFriendContent: $showFriendContent, pinWindowShowUp: $pinWindowShowUp)
                 .environment(mapManager)
             }
         }
